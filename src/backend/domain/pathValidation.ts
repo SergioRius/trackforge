@@ -22,7 +22,8 @@ export function validateNoPathTraversal(filePath: string): void {
 }
 
 export function isValidFileName(filename: string): boolean {
-  const ILLEGAL = /[<>:"/\\|?*\u0000-\u001F]/u;
+  // eslint-disable-next-line no-control-regex
+  const ILLEGAL = /[<>:"/\\|?*\x00-\x1f]/;
   return !ILLEGAL.test(filename) && filename.length > 0 && filename.length <= 255;
 }
 

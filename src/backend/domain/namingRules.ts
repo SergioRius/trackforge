@@ -1,4 +1,5 @@
-const ILLEGAL_CHARS_REGEX = /[<>:"/\\|?*\u0000-\u001F]/gu;
+// eslint-disable-next-line no-control-regex
+const ILLEGAL_CHARS_REGEX = /[<>:"/\\|?*\x00-\x1f]/g;
 
 export function sanitizeFilename(name: string): string {
   return name.replace(ILLEGAL_CHARS_REGEX, '_').trim();
