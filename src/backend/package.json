@@ -1,0 +1,27 @@
+{
+  "name": "@trackforge/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/presentation/server.js",
+  "scripts": {
+    "dev": "tsx watch src/presentation/server.ts",
+    "build": "tsc",
+    "start": "node dist/presentation/server.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@trackforge/shared": "*",
+    "fastify": "^4.26.0",
+    "@fastify/cors": "^9.0.0",
+    "@fastify/static": "^7.0.0",
+    "music-metadata": "^10.0.0",
+    "pino": "^8.19.0",
+    "pino-pretty": "^10.3.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0"
+  }
+}

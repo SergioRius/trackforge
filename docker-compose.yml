@@ -1,0 +1,14 @@
+services:
+  trackforge:
+    image: trackforge:latest
+    container_name: trackforge
+    ports:
+      - "8080:8080"
+    volumes:
+      - /path/to/library:/library:ro
+      - /path/to/destination:/destination
+      - /path/to/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+    restart: unless-stopped

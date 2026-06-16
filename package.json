@@ -1,0 +1,35 @@
+{
+  "name": "trackforge",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "src/shared",
+    "src/backend",
+    "src/frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev -w src/backend",
+    "dev:frontend": "npm run dev -w src/frontend",
+    "build": "npm run build -w src/shared && npm run build -w src/backend && npm run build -w src/frontend",
+    "start": "npm run start -w src/backend",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:integration": "vitest run tests/integration/",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,json,css}\" \"tests/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,json,css}\" \"tests/**/*.ts\"",
+    "typecheck": "npm run typecheck -w src/shared && npm run typecheck -w src/backend && npm run typecheck -w src/frontend"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0"
+  }
+}
