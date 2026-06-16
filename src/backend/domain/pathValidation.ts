@@ -22,7 +22,7 @@ export function validateNoPathTraversal(filePath: string): void {
 }
 
 export function isValidFileName(filename: string): boolean {
-  const ILLEGAL = /[<>:"/\\|?*\x00-\x1f]/;
+  const ILLEGAL = /[<>:"/\\|?*\u0000-\u001F]/u;
   return !ILLEGAL.test(filename) && filename.length > 0 && filename.length <= 255;
 }
 

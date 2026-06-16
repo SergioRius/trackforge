@@ -1,4 +1,4 @@
-const ILLEGAL_CHARS_REGEX = /[<>:"/\\|?*\x00-\x1f]/g;
+const ILLEGAL_CHARS_REGEX = /[<>:"/\\|?*\u0000-\u001F]/gu;
 
 export function sanitizeFilename(name: string): string {
   return name.replace(ILLEGAL_CHARS_REGEX, '_').trim();

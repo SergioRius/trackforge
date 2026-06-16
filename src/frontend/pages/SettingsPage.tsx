@@ -7,7 +7,7 @@ import { api, SettingsResponse } from '@/services/api';
 import { Save } from 'lucide-react';
 
 export function SettingsPage() {
-  const [settings, setSettings] = useState<SettingsResponse | null>(null);
+  const [, setSettings] = useState<SettingsResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);

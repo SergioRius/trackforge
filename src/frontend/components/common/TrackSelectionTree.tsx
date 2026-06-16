@@ -26,8 +26,8 @@ const PLUS_BTN =
 
 export function TrackSelectionTree({
   data,
-  selectedPaths,
-  onSelect,
+  selectedPaths: _selectedPaths,
+  onSelect: _onSelect,
   onAddAlbum,
   onAddDirectory,
   onAddTrack,

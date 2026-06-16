@@ -34,7 +34,7 @@ export function DestinationLibraryPage() {
     loadTree();
   }, [loadTree]);
 
-  const loadChildren = useCallback(async (path: string): Promise<TreeItem> => {
+  const loadChildren = useCallback(async (_path: string): Promise<TreeItem> => {
     return api.getDestinationTree();
   }, []);
 
