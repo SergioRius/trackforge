@@ -37,7 +37,7 @@ async function request<T>(endpoint: string, options: RequestOptions = {}): Promi
 export interface ApiTreeResponse {
   name: string;
   relativePath: string;
-  type: 'directory' | 'album';
+  type: 'directory' | 'album' | 'track';
   children?: ApiTreeResponse[];
   trackCount?: number;
   totalSizeBytes?: number;
