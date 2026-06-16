@@ -386,3 +386,36 @@ Destination/
 └── Compilations/
     └── Road Trip 2026/
 ```
+
+---
+
+## Critical rules (must follow)
+
+- Never infer or fabricate:
+  - user names
+  - email addresses
+  - repository names
+  - Git handles
+  - configuration values
+
+If missing → ask explicitly.
+
+- Always read existing git configuration before changing it:
+  - git config user.name
+  - git config user.email
+  - git config --global user.name
+  - git config --global user.email
+
+- Never modify global git configuration (--global) without explicit user request.
+
+- Never run git commit with assumed identity.
+  If identity is required and not explicitly provided, stop and ask.
+
+- Never execute destructive or state-changing commands without showing them first and requesting confirmation:
+  - git push
+  - git reset
+  - git commit --amend
+  - docker push
+  - any remote operation
+
+- Treat GitHub, Gitea, GitLab, GHCR and external services as production systems.
