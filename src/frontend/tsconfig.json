@@ -12,6 +12,5 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false
   },
-  "include": ["./**/*.ts", "./**/*.tsx"],
-  "references": [{ "path": "../shared" }]
+  "include": ["./**/*.ts", "./**/*.tsx"]
 }

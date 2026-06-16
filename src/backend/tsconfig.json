@@ -6,6 +6,5 @@
     "customConditions": ["node"]
   },
   "include": ["./**/*.ts"],
-  "exclude": ["dist"],
-  "references": [{ "path": "../shared" }]
+  "exclude": ["dist"]
 }
