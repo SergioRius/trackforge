@@ -1,12 +1,20 @@
 name: Docker
 
 on:
-  push:
-    branches: [main]
-    tags: ['v*']
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+  workflow_dispatch:
 
 jobs:
   docker:
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'push'
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -26,9 +34,9 @@ jobs:
         with:
           images: ghcr.io/sergiorius/trackforge
           tags: |
-            type=ref,event=branch
-            type=semver,pattern={{version}}
+            type=raw,value=main,enable={{is_default_branch}}
             type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}}
 
       - uses: docker/build-push-action@v5
         with:
